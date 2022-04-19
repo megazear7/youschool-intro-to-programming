@@ -9,7 +9,7 @@ console.log('I have a random number. You have ' + maxTrys + ' to figure it out.'
 
 while (guess !== number && trys < maxTrys) {
     trys = trys + 1;
-    guess = parseInt(await ask('Try #' + trys + '. Guess a number'));
+    guess = parseInt(await ask('Try #' + trys + '. Guess a number '));
 
     if (guess > number) {
         console.log('Too high');
