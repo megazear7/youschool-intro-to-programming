@@ -1,0 +1,419 @@
+<!DOCTYPE html><html><head>
+      <title>reference</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/alexlockhart/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.8/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="programming">Programming</h1>
+
+<p>Programming is writing in a language that both computers and humans understand. We will be using the programming language called JavaScript but there are many others.</p>
+<p>After writing a program, you can tell a computer to execute the program. This means that the computer reads the program and does what it says. A computer will do one line after another, starting from the top of the program.</p>
+<h2 class="mume-header" id="comments">Comments</h2>
+
+<p>A comment starts with two forward slashes. The computer ignores comments.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// This is a comment</span>
+</pre><h2 class="mume-header" id="booleans">Booleans</h2>
+
+<p>A boolean is a type of value that only has two options, <code>true</code> and <code>false</code>. We will see how booleans are used when we talk about <em>conditions</em> later on.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token boolean">true</span>
+<span class="token boolean">false</span>
+</pre><h2 class="mume-header" id="strings">Strings</h2>
+
+<p>A string is a list of characters. When programming, strings are always surrounded in quotes. A character can be a letter, number, an empty space, or a symbol. Here are some example strings. Notice that <code>&quot;45&quot;</code> is <em>not</em> a number. It is a string.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token string">&quot;Hello&quot;</span>
+<span class="token string">&quot;See ya later&quot;</span>
+<span class="token string">&quot;45&quot;</span>
+<span class="token string">&quot;I. Like? Symbols:)&quot;</span>
+</pre><h2 class="mume-header" id="numbers">Numbers</h2>
+
+<p>When programming, you will often want to use numbers. Numbers are exactly what they sound like. Here are some examples:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>0
+4437
+9
+9823223
+</code></pre><h2 class="mume-header" id="variables">Variables</h2>
+
+<p>Variables are the computers <em>memory</em>. You can assign a <em>value</em> to a <em>variable</em> and then use or update that value later on. For example a computer could remember your name or count from 0 to 10.</p>
+<p>In this example, the variable is <code>myName</code> and the value is <code>&quot;Alex&quot;</code>. Notice that the keyword <code>let</code> is put in front of the variable. You need to do this the first time you set a value to a variable. Also notice that <em>there are no spaces in the name of the variable</em>. You do not type <s><code>my name</code></s>. Instead, you type <code>myName</code>, where there are no spaces and the first letter of each new word is capitalized.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> myName <span class="token operator">=</span> <span class="token string">&quot;Alex&quot;</span><span class="token punctuation">;</span>
+</pre><p>In this example, the variable is <code>score</code> and the value is <code>5</code></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> score <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</pre><p>In this example, the variable is <code>didOsuWin</code> and the value is <code>true</code></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> didOsueWin <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="updating-variables">Updating Variables</h4>
+
+<p>When you want to change the value of a variable, you do the same thing as you did before, except you do not use the <code>let</code> keyword.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">score <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="conditions">Conditions</h2>
+
+<p>A condition checks to see if something is true or false. Some examples of every day conditions:</p>
+<ul>
+<li>Did you go to the store?</li>
+<li>Do you like football?</li>
+<li>Are you taller than a Giraffe?</li>
+</ul>
+<p>Each of these statements is either <code>true</code> or <code>false</code> which means that in programming we call them conditions. Here are some examples of things that <em>are not</em> conditions.</p>
+<ul>
+<li>How old are you?</li>
+<li>What football team do you like?</li>
+</ul>
+<p>A condition must be either <code>true</code> or <code>false</code>. Here are some examples of conditions in programming.</p>
+<h4 class="mume-header" id="equality">Equality</h4>
+
+<p>In this example, the value <code>14</code> is being compared to the value <code>14</code> to see if it is equal. Obviously, 14 is equal to 14, so this is true.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">14</span> <span class="token operator">===</span> <span class="token number">14</span> <span class="token comment">// true</span>
+</pre><p>In this example, the value of <code>10</code> is being compared to the value of <code>12</code> to see if they are equal. Obviously, 10 is <em>not</em> equal to 14, so this is false.</p>
+<p>In this example, a string is being compared to a number. Even though the string contains the text <code>&quot;14&quot;</code>, because this is a string, and not a number, <code>&quot;14&quot;</code> is <em>not</em> equal to <code>14</code>.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token string">&quot;14&quot;</span> <span class="token operator">===</span> <span class="token number">14</span> <span class="token comment">// false</span>
+</pre><h4 class="mume-header" id="greater-than">Greater than</h4>
+
+<p>You can also see if a number is bigger than another number. For example, this condition is true.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">14</span> <span class="token operator">&gt;</span> <span class="token number">7</span> <span class="token comment">// true</span>
+</pre><pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">14</span> <span class="token operator">&gt;</span> <span class="token number">14</span> <span class="token comment">// false</span>
+</pre><h4 class="mume-header" id="greater-than-or-equal-to">Greater than or equal to</h4>
+
+<p>This condition will check if <code>10</code> is greater than <em>or equal to</em> <code>9</code>.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">10</span> <span class="token operator">&gt;=</span> <span class="token number">9</span> <span class="token comment">// true</span>
+</pre><p>And this is also true:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">10</span> <span class="token operator">&gt;=</span> <span class="token number">10</span> <span class="token comment">// true</span>
+</pre><h4 class="mume-header" id="less-than">Less than</h4>
+
+<p>The same conditions exist to check if a number is less than another number.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">8</span> <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token comment">// true</span>
+
+<span class="token number">8</span> <span class="token operator">&lt;</span> <span class="token number">8</span> <span class="token comment">// false</span>
+
+<span class="token number">8</span> <span class="token operator">&lt;</span> <span class="token number">4</span> <span class="token comment">// false</span>
+</pre><h4 class="mume-header" id="less-than-or-equal-to">Less than or equal to</h4>
+
+<p>The same conditions exist to check if a number is less than or equal to another number.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token number">8</span> <span class="token operator">&lt;=</span> <span class="token number">10</span> <span class="token comment">// true</span>
+
+<span class="token number">8</span> <span class="token operator">&lt;=</span> <span class="token number">8</span> <span class="token comment">// true</span>
+
+<span class="token number">8</span> <span class="token operator">&lt;=</span> <span class="token number">4</span> <span class="token comment">// false</span>
+</pre><h2 class="mume-header" id="if-statements">If Statements</h2>
+
+<p>Sometimes in programming, you only want to do something if something is true. For this, we use <code>if</code> statements.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> ageToDrive <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&gt;=</span> ageToDrive<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;I am old enough to drive&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>In this example, you start with the <code>if</code> keyword. You then write an <em>opening parenthesis</em> like this: <code>(</code>. Between that and the closing  parenthesis, which looks like <code>)</code>, you write your condition. At the end of the line you write a <code>{</code>, which is called a <em>squigly bracket</em> (that&apos;s the real name). Between the openning squigly bracket and the closing squigly bracket which looks like <code>}</code>, you write other lines of code. These lines of code will only be executed if the condition is true.</p>
+<h2 class="mume-header" id="if-else-statements">If Else Statements</h2>
+
+<p>You can also do something if a condition is true, and <em>something else</em> if a condition is false, using the <code>else</code> keyword, like this:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> ageToDrive <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&gt;=</span> ageToDrive<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;I am old enough to drive&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;I am too younge to drive&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="if-else-if">If Else If</h2>
+
+<p>You can combine multiple <code>if</code> staments together like this:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> age <span class="token operator">=</span> <span class="token number">14</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&gt;=</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;You are an adult&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&gt;=</span> <span class="token number">13</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;You are a teenager&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;You are a kid&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>In this example, the <em>first</em> condition to be true is what the computer will execute. If none of them are true, then the <code>else</code> section is executed.</p>
+<h3 class="mume-header" id="while-loops">While Loops</h3>
+
+<p>You can also tell the computer to do things over and over again using the <code>while</code> keyword. For example:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-while">while</span> <span class="token punctuation">(</span>number <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    number <span class="token operator">=</span> number <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>This will print out the number <code>0</code> and then increase it to <code>1</code>. After the computer gets to the end of the while loop it goes back to the condition. If it is true, it does everything again. If it is false, it skips to after the while loop closing squigly bracket <code>}</code>. The output of this program will be:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
