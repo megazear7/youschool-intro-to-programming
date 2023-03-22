@@ -18,6 +18,13 @@ class MapObject {
     }
 }
 
+class MapStar extends MapObject {
+    constructor() {
+        super(...arguments);
+        this.symbol = '★';
+    }
+}
+
 class MapPlayer extends MapObject {
     constructor() {
         super(...arguments);
@@ -63,7 +70,16 @@ class MapPlayer extends MapObject {
         } else {
             throw 'Unknown facing: ' + this.facing;
         }
+
         await this.map.draw();
+        this.checkIfWon();
+    }
+
+    checkIfWon() {
+        const star = this.map.objects.find(obj => obj instanceof MapStar);
+        if (star && star.x === this.x && star.y === this.y) {
+            this.map.abort('You found the star!');
+        }
     }
 
     symbolAt() {
@@ -81,6 +97,10 @@ class Map {
         this.doClear = true;
         this.doingAbort = true;
         this.objects = [];
+    }
+    
+    speedUp(factor) {
+        this.speed = this.speed / factor;
     }
 
     addObject(obj) {
@@ -185,10 +205,21 @@ class Map {
 const map = new Map({ width: 10, height: 10, size: 1 });
 const player = new MapPlayer({ map, x: 0, y: 0, symbol: 'ᐅ' });
 map.addObject(player);
+const star = new MapStar({ map, x: map.width - 1, y: map.height - 1 });
+map.addObject(star);
+map.speedUp(10);
 await map.draw();
 await player.turnRight();
 await player.moveForward();
 await player.moveForward();
+await player.moveForward();
+await player.moveForward();
+await player.moveForward();
+await player.moveForward();
+await player.moveForward();
+await player.moveForward();
+await player.moveForward();
+await player.turnLeft();
 await player.moveForward();
 await player.moveForward();
 await player.moveForward();
