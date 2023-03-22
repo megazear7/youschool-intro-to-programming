@@ -1,10 +1,19 @@
-
-class MapObject {
+export class MapObject {
     constructor({ map, x = 0, y = 0, symbol = 'x' } = {}) {
         this.map = map;
         this.x = x;
         this.y = y;
         this.symbol = symbol;
+    }
+
+    moveRandom() {
+        this.x = Math.floor(Math.random() * this.map.width);
+        this.y = Math.floor(Math.random() * this.map.height);
+        return this;
+    }
+
+    checkImpacts() {
+        return this.map.objects.filter(obj => obj.x === this.x && obj.y === this.y);
     }
 
     symbolAt(spaceX, spaceY) {
@@ -18,18 +27,55 @@ class MapObject {
     }
 }
 
-class MapStar extends MapObject {
+export class MapStar extends MapObject {
     constructor() {
         super(...arguments);
         this.symbol = '★';
     }
 }
 
-class MapPlayer extends MapObject {
+export class MapWall extends MapObject {
+    constructor() {
+        super(...arguments);
+        this.symbol = '■';
+    }
+}
+
+export class MapPlayer extends MapObject {
     constructor() {
         super(...arguments);
         this.facing = 0;
         this.leftMapMsg = 'Oh no! You tried leaving the map!';
+    }
+
+    async facingAWall() {
+        if (this.facing === 0) {
+            if (this.x < this.map.width - 1) {
+                return !! this.map.objects.find(obj => obj.x === this.x + 1 && obj.y === this.y);
+            } else {
+                return true;
+            }
+        } else if (this.facing === 1) {
+            if (this.y < this.map.height - 1) {
+                return !! this.map.objects.find(obj => obj.x === this.x && obj.y === this.y + 1);
+            } else {
+                return true;
+            }
+        } else if (this.facing === 2) {
+            if (this.x > 0) {
+                return !! this.map.objects.find(obj => obj.x === this.x - 1 && obj.y === this.y);
+            } else {
+                return true;
+            }
+        } else if (this.facing === 3) {
+            if (this.y > 0) {
+                return !! this.map.objects.find(obj => obj.x === this.x && obj.y === this.y - 1);
+            } else {
+                return true;
+            }
+        } else {
+            throw 'Unknown facing: ' + this.facing;
+        }
     }
 
     async turnLeft() {
@@ -76,9 +122,11 @@ class MapPlayer extends MapObject {
     }
 
     checkIfWon() {
-        const star = this.map.objects.find(obj => obj instanceof MapStar);
-        if (star && star.x === this.x && star.y === this.y) {
-            this.map.abort('You found the star!');
+        const impacts = this.checkImpacts();
+        if (impacts.find(obj => obj instanceof MapWall)) {
+            this.map.abort('Oh no! You ran into a wall!');
+        } else if (impacts.find(obj => obj instanceof MapStar)) {
+            this.map.abort('You won! You found the star!');
         }
     }
 
@@ -87,7 +135,7 @@ class MapPlayer extends MapObject {
     }
 }
 
-class Map {
+export class Map {
     constructor({ width = 5, height = 5, size = 2, speed = 1000, empty = ' ' } = {}) {
         this.width = width;
         this.height = height;
@@ -105,6 +153,7 @@ class Map {
 
     addObject(obj) {
         if (obj instanceof MapObject) {
+            obj.map = this;
             this.objects.push(obj);
         } else {
             throw 'Object must be of type MapObject';
@@ -201,42 +250,3 @@ class Map {
         }
     }
 }
-
-const map = new Map({ width: 10, height: 10, size: 1 });
-const player = new MapPlayer({ map, x: 0, y: 0, symbol: 'ᐅ' });
-map.addObject(player);
-const star = new MapStar({ map, x: map.width - 1, y: map.height - 1 });
-map.addObject(star);
-map.speedUp(10);
-await map.draw();
-await player.turnRight();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.turnLeft();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-await player.moveForward();
-
-
-/*
-ᐃ
-ᐁ
-ᐊ
-ᐅ
-■
-★
-✪
-*/
